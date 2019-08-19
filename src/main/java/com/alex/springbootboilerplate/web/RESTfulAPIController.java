@@ -42,6 +42,7 @@ public class RESTfulAPIController {
 	public List<DemoInfo> insertDemoInfo(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("description") String description) {
 		// POST请求，用来创建DemoInfo
 		// 除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数
+		System.out.println("insertDemoInfo");
 		DemoInfo demo = new DemoInfo();
 		demo.setId(id);
 		demo.setDescription(description);

@@ -2,9 +2,14 @@ package com.alex.springbootboilerplate;
 
 import java.util.Arrays;
 
+import com.alex.springbootboilerplate.aop.SetterInterceptor;
+import org.aspectj.lang.Aspects;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class App {
@@ -30,7 +35,15 @@ public class App {
 	 * @ComponentScan tells Spring to look for other components, configurations, and services in the the hello package, allowing it to find the HelloController.
 	 * @ComponentScan 告诉Spring寻找其他组件，配置，以及业务层类,最前面才能加载到所有的类。
 	 */
-	
+
+/*
+* 	@Bean
+	public SetterInterceptor setterInterceptor() {
+		// This will barf at runtime if the weaver isn't working (probably a
+		// good thing)
+		return Aspects.aspectOf(SetterInterceptor.class);
+	}
+*/
 	public static void main(String[] args) {
 		// devtools：是spring boot的一个热部署工具
 		//设置 spring.devtools.restart.enabled 属性为false，可以关闭该特性.
@@ -38,7 +51,7 @@ public class App {
 		
 		// 启动Spring Boot
 		ApplicationContext ctx = SpringApplication.run(App.class, args);
-		System.out.println("Let's inspect the beans provided by Spring Boot:");
+		//System.out.println("Let's inspect the beans provided by Spring Boot:");
 		String[] beanNames = ctx.getBeanDefinitionNames();
 		Arrays.sort(beanNames);
 		for (String beanName : beanNames) {

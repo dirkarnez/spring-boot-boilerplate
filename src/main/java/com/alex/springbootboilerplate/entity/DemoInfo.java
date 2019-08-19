@@ -1,15 +1,15 @@
 package com.alex.springbootboilerplate.entity;
 
+import org.hibernate.annotations.Entity;
+
 import java.io.Serializable;
 
+@Entity
 public class DemoInfo implements Serializable {
 
 	private static final long serialVersionUID = -1727537778826379384L;
-
 	private String id;
-	
 	private String name;
-	
 	private String description;
 
 	public String getId() {

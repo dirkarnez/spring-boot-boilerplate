@@ -7,13 +7,14 @@ import javax.annotation.Resource;
 import com.alex.springbootboilerplate.dao.DemoInfoDAO;
 import com.alex.springbootboilerplate.entity.DemoInfo;
 import com.alex.springbootboilerplate.service.DemoInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DemoInfoServiceImpl implements DemoInfoService {
 
-	@Resource
-	DemoInfoDAO dao;
+	@Autowired
+	private DemoInfoDAO dao;
 
 	@Override
 	public List<DemoInfo> insertDemoInfo(DemoInfo demo) {
